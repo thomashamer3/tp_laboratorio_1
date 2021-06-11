@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1601689280 source:c:\users\estefania\desktop\trabajos code blocks y ejercicios\trabajo practico 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
+1601689347 source:c:\users\estefania\desktop\trabajos code blocks y ejercicios\trabajo practico 2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
+1601689581 c:\users\estefania\desktop\trabajos code blocks y ejercicios\trabajo practico 2\arrayemployees.h
+
+1601492824 source:c:\users\estefania\desktop\trabajos code blocks y ejercicios\trabajo practico 2\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1601689347 source:c:\users\estefania\desktop\trabajo practico 2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
+1601689581 c:\users\estefania\desktop\trabajo practico 2\arrayemployees.h
+
+1601689280 source:c:\users\estefania\desktop\trabajo practico 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
