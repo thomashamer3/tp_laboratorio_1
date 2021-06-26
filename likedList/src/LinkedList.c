@@ -219,10 +219,6 @@ int ll_remove(LinkedList* this,int index)
 	    	pNode = getNode(this,index);
 	    	nextNode = getNode(this,index+1);
 
-	    	if(pNode!=NULL)
-	    	{
-	    	   free(pNode);
-	    	}
 	    	if (index==0)//Entro si el indice es igual a 0
 	        {
 	            this->pFirstNode = nextNode;
@@ -232,6 +228,12 @@ int ll_remove(LinkedList* this,int index)
 	        	lastNode = getNode(this,index-1);
 	        	lastNode->pNextNode=nextNode;
 	        }
+
+	    	if(pNode!=NULL) // arreglar free despues del if else
+	    	{
+	    		free(pNode);
+	    	}
+
 	        this->size--;
 	        returnAux = 0;
 	    }
@@ -248,7 +250,7 @@ int ll_remove(LinkedList* this,int index)
  */
 int ll_clear(LinkedList* this)
 {
-	int returnAux = -1; //Arreglar no elimina correctamente
+	int returnAux = -1;
 	int len;
 	int i;
 
@@ -257,7 +259,7 @@ int ll_clear(LinkedList* this)
 		  len=ll_len(this);
 		  if(len>0)
 		  {
-			for(i=len; i>=0; i--)
+			for(i=len-1; i>=0; i--)
 			{
 				ll_remove(this, i);  //Recorre todos los datos y los elimina en cada iteracion
 			}
@@ -379,7 +381,7 @@ void* ll_pop(LinkedList* this,int index)
 	if(this!=NULL && index>=0 && index<ll_len(this))
 	{
 	   returnAux=ll_get(this,index);
-	   ll_remove(this,index);  //ARREGLAR
+	   ll_remove(this,index);
 	}
 
 	return returnAux;
@@ -402,7 +404,7 @@ int ll_contains(LinkedList* this, void* pElement)
 	{
     	index=ll_indexOf(this, pElement);
     	returnAux = 0;
-	    if(index != -1) 		//ARREGLAR ELSE
+	    if(index != -1)
 	    {
 		   returnAux = 1;
 	    }
@@ -529,7 +531,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 	                criterio=pFunc(pAux,pAux2);
 	                if((order==0 && criterio==-1) || (order==1 && criterio==1))
 	                {
-	                    addNode(this,i,pAux2);
+	                    addNode(this,i,pAux2);//arreglar los nodos
 	                    ll_remove(this,j+1);
 	                }
 	            }
