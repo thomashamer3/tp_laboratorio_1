@@ -3,80 +3,71 @@
 #include <string.h>
 #define T 1000
 #include "ArrayEmployees.h"
+#include "input.h"
 
 int main()
 {
     int opcion;
-    int i;
-    int entradaOpcion=0;
+    int flagAdd;
     eEmployee listaEmpleados[T];
-    i=initEmployee(listaEmpleados,T);
+    initEmployee(listaEmpleados,T);
 
     do
     {
-        printf("1.Ingresar Empleado\n");
-        printf("2.Modificar Empleado\n");
-        printf("3.Eliminar Empleado\n");
-        printf("4.Informar\n");
-        printf("5.Salir");
-        printf("\nIngrese una Opcion: ");
-        scanf("%d",&opcion);
+        Menu(opcion);
+        utn_getNumero(&opcion,"\nIngrese una Opcion:","\nError Ingrese una Opcion entre 1-5.",1,5,3);
 
         switch(opcion)
         {
 
         case 1:
-            entradaOpcion=0;
-            addEmployee(listaEmpleados,T);
-            entradaOpcion=1;
-
-            if(i!=-1)
+            flagAdd=addEmployee(listaEmpleados,T);
+            if(flagAdd==0)
             {
-                printf("\nCarga Realizada\n");
+                printf("\nCarga Realizada.\n");
             }
             else
             {
-                printf("\nNo hay Espacio\n");
+                printf("\nNo hay Espacio.\n");
             }
             break;
-        case 2:
 
-            if(entradaOpcion==0)
-            {
-                printf("\nIngrese un Empleado\n");
-            }
-            else
+        case 2:
+            if(flagAdd==0)
             {
                 modificarEmpleado(listaEmpleados,T);
             }
-
+            else
+            {
+                printf("\nIngrese un Empleado.\n");
+            }
             break;
+
         case 3:
 
-            if(entradaOpcion==0)
-            {
-                printf("\nIngrese un Empleado\n");
-            }
-            else
+            if(flagAdd==0)
             {
                 removeEmployee(listaEmpleados,T);
             }
-
-            break;
-        case 4:
-
-            if(entradaOpcion==0)
+            else
             {
-                printf("\nIngrese un Empleado\n");
+                printf("\nIngrese un Empleado.\n");
+            }
+            break;
+
+        case 4:
+            if(flagAdd==0)
+            {
+                printEmployees(listaEmpleados,T);
             }
             else
             {
-                printEmployees(listaEmpleados,T);
+                printf("\nIngrese un Empleado.\n");
             }
 
             break;
         case 5:
-            printf("Adios");
+            printf("Adios.");
             break;
         }
     }

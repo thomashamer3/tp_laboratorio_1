@@ -3,33 +3,66 @@
 #include<string.h>
 #define TAM 1000
 #include "ArrayEmployees.h"
+#include "input.h"
 
-void addEmployee(eEmployee listaEmpleados[],int tam)
+int addEmployee(eEmployee listaEmpleados[],int tam)
 {
     eEmployee empleado;
+    int retorno=-1;
+    char nombreEmpleado[51];
+    char apellidoEmpleado[51];
+    int returnNombre;
+    int returnApellido;
     int i;
     i=buscarLibre(listaEmpleados,tam);
+
     if(i!=-1)
     {
-        printf("\nNombre Del Empleado: ");
         fflush(stdin);
-        scanf("%[^\n]", empleado.name);
-        printf("\nApellido Del Empleado: ");
-        fflush(stdin);
-        scanf("%[^\n]", empleado.lastName);
-        printf("\nSalario Del Empleado: ");
-        scanf("%f", &empleado.salary);
-        printf("\nSector Del Empleado: ");
-        scanf("%d", &empleado.sector);
+        returnNombre= getPalabra(nombreEmpleado,"\nIngrese el Nombre Del Empleado: ");
+        if(returnNombre==0)
+        {
+            strcpy(empleado.name,nombreEmpleado);
+            normalizeAndCapitalize(empleado.name);
+        }
+        else
+        {
+            fflush(stdin);
+            returnNombre= getPalabra(nombreEmpleado,"\nError Ingrese el Nombre Del Empleado: ");
+            strcpy(empleado.name,nombreEmpleado);
+            normalizeAndCapitalize(empleado.name);
+        }
+
+        returnApellido= getPalabra(apellidoEmpleado,"\nIngrese el Apellido Del Empleado: ");
+        if(returnApellido==0)
+        {
+            strcpy(empleado.lastName,apellidoEmpleado);
+            normalizeAndCapitalize(empleado.lastName);
+        }
+        else
+        {
+            fflush(stdin);
+            returnApellido= getPalabra(apellidoEmpleado,"\nError Ingrese el Apellido Del Empleado: ");
+            strcpy(empleado.lastName,apellidoEmpleado);
+            normalizeAndCapitalize(empleado.lastName);
+        }
+
+        utn_getNumeroFloat(&empleado.salary,"\nIngrese el Salario del Empleado: ","Error Ingrese un Salario Valido.",0,999999,3);
+        utn_getNumero(&empleado.sector,"\nIngrese el Sector del Empleado: ","Error Ingrese un Sector Valido.",0,10,3);
+
+
+        empleado.id=crearEmpleadoId();
         listaEmpleados[i]=empleado;
         listaEmpleados[i].isEmpty=0;
+        retorno=0;
 
     }
     else
     {
-        printf("No hay Espacio");
+        printf("No hay Espacio.");
     }
 
+    return retorno;
 }
 
 void removeEmployee(eEmployee listaEmpleados[],int tam)
@@ -37,18 +70,19 @@ void removeEmployee(eEmployee listaEmpleados[],int tam)
     int i;
     int id;
     printEmployees(listaEmpleados,tam);
-    printf("\nIngrese el Id del Empleado: ");
-    scanf("%d",&id);
+
+    utn_getNumero(&id,"Ingrese el Id del Empleado: ","\n Error Ingrese Un Id Valido.",0,1000,3);
+
     i=findEmployeeById(listaEmpleados,tam,id);
     if(i>=0)
     {
         listaEmpleados[i].isEmpty=1;
-        printf("\nEmpleado Eliminado\n");
+        printf("\nEmpleado Eliminado.\n");
 
     }
     else
     {
-        printf("\nEmpleado no Encontrado\n");
+        printf("\nEmpleado no Encontrado.\n");
     }
 
 }
@@ -135,13 +169,13 @@ void printEmployees(eEmployee listaEmpleados[],int tam)
     {
         if(listaEmpleados[i].isEmpty==0)
         {
-            listaEmpleados[i].id=i+1;
             printf("\n%14s  %14s  %14.2f  %18d  %15d\n", listaEmpleados[i].lastName, listaEmpleados[i].name,listaEmpleados[i].salary, listaEmpleados[i].sector, listaEmpleados[i].id);
 
         }
     }
     sumaSalarios=salariosSumados(listaEmpleados,tam);
     printf("\nSalario Total: %.2f\n", sumaSalarios);
+    mostraSalarioPromedio(listaEmpleados,tam);
 }
 
 
@@ -150,34 +184,53 @@ void modificarEmpleado(eEmployee listaEmpleados[],int tam)
     int id;
     char nuevoNombre[51];
     char nuevoApellido[51];
+    int returnNombre;
+    int returnApellido;
     int nuevoSector;
     float nuevoSalario;
     int lugar;
 
     printEmployees(listaEmpleados,tam);
-    printf("\nIngrese Id del Empleado a Modificar: ");
-    scanf("%d",&id);
-
+    utn_getNumero(&id,"\nIngrese Id del Empleado a Modificar: ","Ingrese un Id Valido.",0,1000,3);
     lugar=findEmployeeById(listaEmpleados,tam,id);
 
     if(lugar>=0)
     {
-        printf("Ingrese Nombre Del Empleado: ");
+        returnNombre= getPalabra(nuevoNombre,"\nIngrese el Nombre Del Empleado: ");
+        if(returnNombre==0)
+        {
+            normalizeAndCapitalize(nuevoNombre);
+            strcpy(listaEmpleados[lugar].name,nuevoNombre);
+        }
+        else
+        {
+            fflush(stdin);
+            returnNombre= getPalabra(nuevoNombre,"\nError Ingrese el Nombre Del Empleado: ");
+            strcpy(listaEmpleados[lugar].name,nuevoNombre);
+            normalizeAndCapitalize(nuevoNombre);
+        }
+
         fflush(stdin);
-        scanf("%[^\n]", nuevoNombre);
-        strcpy(listaEmpleados[lugar].name,nuevoNombre);
-        printf("Ingrese Apellido Del Empleado:");
-        fflush(stdin);
-        scanf("%[^\n]", nuevoApellido);
-        strcpy(listaEmpleados[lugar].lastName,nuevoApellido);
-        printf("Ingrese Salario Del Empleado:");
-        fflush(stdin);
-        scanf("%f", &nuevoSalario);
+        returnApellido= getPalabra(nuevoApellido,"\nIngrese Apellido Del Empleado:");
+        if(returnApellido==0)
+        {
+            normalizeAndCapitalize(nuevoApellido);
+            strcpy(listaEmpleados[lugar].lastName,nuevoApellido);
+        }
+        else
+        {
+            fflush(stdin);
+            returnApellido= getPalabra(nuevoApellido,"\n Error Ingrese Apellido Del Empleado:");
+
+        }
+
+        utn_getNumeroFloat(&nuevoSalario,"Ingrese el Nuevo Salario del Empleado: ","Error Ingrese Un Salario Valido.",0,999999,3);
         listaEmpleados[lugar].salary=nuevoSalario;
-        printf("Ingrese Sector Del Empleado:");
-        scanf("%d", &nuevoSector);
+
+        utn_getNumero(&nuevoSector,"Ingrese el Nuevo Sector del Empleado: ","Error Ingrese un Sector Valido.",0,10,3);
         listaEmpleados[lugar].sector=nuevoSector;
-        printf("\nModificacion Realizada\n");
+
+        printf("\nModificacion Realizada.\n");
     }
 
 }
@@ -199,4 +252,54 @@ int buscarLibre(eEmployee listaEmpleados[],int tam)
     return index;
 }
 
+int crearEmpleadoId(void)
+{
+    static int id=0;
+    id++;
+    return id;
+}
 
+void mostraSalarioPromedio(eEmployee listaEmpleados[], int tam)
+{
+    int i;
+    int contador=0;
+    float total=0;
+    float promedio;
+
+    for(i=0; i<tam; i++)
+    {
+        if(listaEmpleados[i].isEmpty==0)
+        {
+            total+= listaEmpleados[i].salary;
+            contador++;
+        }
+
+    }
+
+    promedio = total/contador;
+
+    if(total==0)
+    {
+        promedio=0;
+    }
+    if(contador>0)
+    {
+        printf("\n Salario Promedio: $%.1f\n", promedio);
+
+        printf("\n Los Empleado que Superan el Salario Promedio son:\n");
+
+        for(i=0; i<tam; i++)
+        {
+            if(listaEmpleados[i].salary>=promedio && listaEmpleados[i].isEmpty==0)
+            {
+                mostrarUnEmpleado(listaEmpleados[i]);
+            }
+        }
+    }
+
+}
+
+void mostrarUnEmpleado(eEmployee auxEmployee)
+{
+    printf("\n%8d %8s %8s\t $%8.1f %8.d\n", auxEmployee.id, auxEmployee.name, auxEmployee.lastName, auxEmployee.salary, auxEmployee.sector);
+}

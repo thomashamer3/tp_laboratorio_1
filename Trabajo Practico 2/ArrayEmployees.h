@@ -17,7 +17,7 @@ typedef struct
  * \return void
  *
  */
-void addEmployee(eEmployee[],int);
+int addEmployee(eEmployee[],int);
 /** \brief Busca un espacio libre en la array.
  *
  * \param eEmployee[]
@@ -83,6 +83,32 @@ float salariosSumados(eEmployee[],int);
  *
  */
 int initEmployee(eEmployee[],int);
+
+/** \brief Crea un Id autoincremental y lo regresa
+ *
+ * \return int id
+ *
+ */
+int crearEmpleadoId();
+
+/** \brief Recibe el Array y Muestra el Salario Promedio
+ *
+ * \param eEmployee[]
+ * \param int tam
+ * \return void
+ *
+ */
+void mostraSalarioPromedio(eEmployee[], int);
+
+/** \brief Muestra Un Empleado
+ *
+ * \param auxEmployee eEmployee
+ * \return void
+ *
+ */
+void mostrarUnEmpleado(eEmployee auxEmployee);
+
+
 
 
 #endif // ARRAYEMPLOYEES_H_INCLUDED
