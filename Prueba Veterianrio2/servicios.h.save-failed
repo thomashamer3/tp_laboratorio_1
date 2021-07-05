@@ -1,0 +1,79 @@
+
+#ifndef SERVICIOS_H_INCLUDED
+#define SERVICIOS_H_INCLUDED
+
+typedef struct
+{
+	int id;
+	char descripcion[25];
+	float precio;
+	int isEmpty;
+}eServicio;
+
+/**
+ * HardcodearServicios permite guardar datos hardcodeados en la estructura de servicios
+ * @param eServicio permite guardar datos en la estructura de servicios
+ * @param int es el tamaño del array
+ * */
+void HardcodearServicios(eServicio[], int);
+/**
+ * DetectarServicios, detecta si existen servicios cargados o no
+ * @param eServicio[] obtiene el array de los servicios
+ * @param int el tamaño del array
+ * */
+int DetectarServicios(eServicio[], int);
+/**
+ * ObtenerServicios, Obtiene todos los elementos cargados en el array
+ * @param eServicio[] obtiene el array de los servicios
+ * @param int el tamaño del array
+ * */
+void ObtenerServicios(eServicio[], int);
+/**
+ * MostrarServicio permite mostrar un dato de la estructura servicios
+ * @param sServicio obtiene los datos de la estructura
+ * @param int es el tamaño del array
+ * */
+int MostrarServicio(eServicio);
+/**
+ * MostrarServicios permite mostrar los datos de la estructura servicios verificando que existan datos cargados
+ * @param eServicio obtiene los datos de la estructura
+ * @param int es el tamaño del array
+ * */
+int MostrarServicios(eServicio [], int);
+/**
+ * CorroborarFkConPk, corrobora que la primary key sea igual a la foreign key para poder acumular los precios
+ * @param eTrabajo obtiene la estrucutra de trabajos
+ * @param sServicio obtiene la estructura de servicios
+ * @param int obtiene el precio
+ * */
+int CorroborarFkConPk(eTrabajo, eServicio, int);
+/**
+ * ObtenerPrecios, obtiene los precios sumados y los retorna
+ * @param eTrabajo[] obtiene el array de los trabajos
+ * @param eServicio[] obtiene el array de los servicios
+ * @param int el tamaño del array de servicios
+ * @param int el tamaño del array de trabajos
+ * */
+int ObtenerPrecios(eTrabajo[], eServicio[], int, int);
+/**
+ * MostrarPrecioTotal, muestra el precio total obtenido
+ * @param eTrabajo[] obtiene el array de los trabajos
+ * @param eServicio[] obtiene el array de los servicios
+ * @param int el tamaño del array de servicios
+ * @param int el tamaño del array de trabajos
+ * */
+int MostrarPrecioTotal(eTrabajo[], eServicio[], int, int);
+/**
+ * IdMinima, obtiene la id minima de los servicios ingresados y retorna la id minima
+ * @param la id actual
+ * @param el controlador i de la iteracion
+ * */
+int IdMinima(int, int);
+/**
+ * ValidarIdCorrecta, valida que la id que ingrese el usuario este dentro del rango permitidos
+ * @param eServicio[] obtiene el array de los productos
+ * @param int el tamaño del array
+ * */
+int ValidarIdCorrecta(eServicio[], int);
+
+#endif // SERVICIOS_H_INCLUDED

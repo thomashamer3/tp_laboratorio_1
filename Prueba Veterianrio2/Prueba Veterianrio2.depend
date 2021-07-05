@@ -1,0 +1,138 @@
+# depslib dependency file v1.0
+1625510660 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1625250880 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\input.h
+
+1625197061 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\fechas.c
+	"fechas.h"
+	"input.h"
+
+1625196195 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\fechas.h
+
+1625252333 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+
+1625253149 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\mascotas.h
+
+1625252333 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\servicios.h
+
+1625513926 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajo.h
+	"fechas.h"
+
+1625461008 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+
+1625251539 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+
+1625251539 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoymascota.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+	"mascotas.h"
+	"trabajo.h"
+
+1625510674 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+	"trabajoYmascota.h"
+	"trabajoYservicio.h"
+	"trabajoYservicioYmascota.h"
+	"duenio.h"
+
+1625186758 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoymascota.h
+	"mascotas.h"
+	"trabajo.h"
+
+1625513365 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoyservicio.h
+	"servicios.h"
+	"trabajo.h"
+
+1625513365 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoyservicioymascota.h
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+	"duenio.h"
+
+1625511483 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoyservicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+	"servicios.h"
+	"trabajo.h"
+	"mascotas.h"
+	"trabajoYservicio.h"
+	"trabajoYservicioYmascota.h"
+
+1625510301 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\trabajoyservicioymascota.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+	"trabajoYmascota.h"
+	"trabajoYservicio.h"
+	"trabajoYservicioYmascota.h"
+	"duenio.h"
+
+1625513365 source:c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\duenio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fechas.h"
+	"input.h"
+	"mascotas.h"
+	"servicios.h"
+	"trabajo.h"
+	"trabajoYmascota.h"
+	"trabajoYservicio.h"
+	"trabajoYservicioYmascota.h"
+	"duenio.h"
+
+1625513365 c:\users\electronicg\desktop\trabajos code blocks y ejercicios\prueba veterianrio2\duenio.h
+
