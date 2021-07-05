@@ -84,8 +84,7 @@ int main(void)
             break;
 
         case 10:
-            //promedio=promedioDeEdades(servicio,mascota,TamanioTrabajo);
-            //printf("El Promedio es de: %d",promedio);
+
             break;
 
         case 11:
