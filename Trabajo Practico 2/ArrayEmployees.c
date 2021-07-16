@@ -162,7 +162,6 @@ void sortEmployee(eEmployee listaEmpleados[],int tam)
 void printEmployees(eEmployee listaEmpleados[],int tam)
 {
     int i;
-    float sumaSalarios;
     sortEmployee(listaEmpleados,tam);
     printf("\tApellido \tNombre \t \tSalario \t\tSector \t\tID\n");
     for(i=0; i<tam; i++)
@@ -173,9 +172,7 @@ void printEmployees(eEmployee listaEmpleados[],int tam)
 
         }
     }
-    sumaSalarios=salariosSumados(listaEmpleados,tam);
-    printf("\nSalario Total: %.2f\n", sumaSalarios);
-    mostraSalarioPromedio(listaEmpleados,tam);
+
 }
 
 
@@ -284,9 +281,9 @@ void mostraSalarioPromedio(eEmployee listaEmpleados[], int tam)
     }
     if(contador>0)
     {
-        printf("\n Salario Promedio: $%.1f\n", promedio);
+        printf("\nSalario Promedio: $%.1f\n", promedio);
 
-        printf("\n Los Empleado que Superan el Salario Promedio son:\n");
+        printf("\nLos Empleado que Superan el Salario Promedio son:\n");
 
         for(i=0; i<tam; i++)
         {

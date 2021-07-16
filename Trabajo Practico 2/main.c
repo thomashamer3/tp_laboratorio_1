@@ -9,6 +9,7 @@ int main()
 {
     int opcion;
     int flagAdd;
+    float sumaSalarios;
     eEmployee listaEmpleados[T];
     initEmployee(listaEmpleados,T);
 
@@ -59,6 +60,9 @@ int main()
             if(flagAdd==0)
             {
                 printEmployees(listaEmpleados,T);
+                sumaSalarios=salariosSumados(listaEmpleados,T);
+                printf("Salario Total: %.2f\n", sumaSalarios);
+                mostraSalarioPromedio(listaEmpleados,T);
             }
             else
             {
